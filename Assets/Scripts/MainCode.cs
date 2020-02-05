@@ -51,7 +51,7 @@ public class MainCode : MonoBehaviour
     }
     void Update()
     {
-        int Factor_VR = 0;
+        double Factor_VR = 30;
         //int Factor_LM = 400; //400
         //Frame frame = provider.CurrentFrame;
         //if (frame != null)
@@ -80,11 +80,11 @@ public class MainCode : MonoBehaviour
         //    file.WriteLine((Variables.xyz_ref[0] + X * 65) + " " + (Variables.xyz_ref[1] - Y * 65) + " " + (Variables.xyz_ref[2] + Z * 65));
         //}
         //}
-        x = Variables.xyz_ref[0] + CPos.v.z * Factor_VR;
-        y = Variables.xyz_ref[1] - CPos.v.x * Factor_VR;
-        z = Variables.xyz_ref[2] + CPos.v.y * Factor_VR;
-        //Variables.target_pose.setPos(x, y, z);
-        //Variables.ROBOT.MoveL(Variables.target_pose);
+        x = Variables.xyz_ref[0] + HandPos.v.z * Factor_VR;
+        y = Variables.xyz_ref[1] - HandPos.v.x * Factor_VR;
+        z = Variables.xyz_ref[2] + HandPos.v.y * Factor_VR;
+        Variables.target_pose.setPos(x, y, z);
+        Variables.ROBOT.MoveL(Variables.target_pose);
         joints = Variables.ROBOT.Joints();
         //print(joints[0]);
         alpha1 = (int)joints[0];

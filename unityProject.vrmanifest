@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.kr3r540project.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\SM7-217\\Documents\\Josh\\KR3_R540_AR_VR_Control\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "KR3 R540 Project [Testing]"
+        }
+      }
+    }
+  ]
+}
