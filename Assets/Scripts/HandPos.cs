@@ -7,7 +7,7 @@ public class HandPos : MonoBehaviour
 {
     public static Vector3 v;
     Vector3 v0,pose;
-    void awake()
+    void start()
     {
         //v0 = VivePose.GetPoseEx(HandRole.RightHand).pos; // last known position of left controller
         v0 = transform.position;
