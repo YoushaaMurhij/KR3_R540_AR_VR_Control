@@ -136,8 +136,10 @@ public class GestureProvider : MonoBehaviour {
     }
 #elif UNITY_2018_3_OR_NEWER
     // Unity 2018.3 or newer adds support for android runtime permission
-    while (!Permission.HasUserAuthorizedPermission(Permission.Camera))
+    while (!Permission.HasUserAuthorizedPermission(Permission.Camera)) {
       Permission.RequestUserPermission(Permission.Camera);
+      yield return null;
+    }
 #else
     while (!Application.HasUserAuthorization(UserAuthorization.WebCam))
       yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);

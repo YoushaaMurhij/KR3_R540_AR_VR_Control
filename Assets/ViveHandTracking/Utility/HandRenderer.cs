@@ -11,6 +11,7 @@ class HandRenderer : MonoBehaviour {
   private static Color32[] gesture_colors = new Color32[] {
     new Color32(0, 255, 0, 0), new Color32(255, 255, 255, 0), new Color32(0, 0, 255, 0),
     new Color32(0, 255, 255, 0), new Color32(255, 20, 147, 0), new Color32(255, 215, 0, 0),
+    new Color32(255, 128, 64, 0),
   };
 
   // Links between keypoints, 2*i & 2*i+1 forms a link.

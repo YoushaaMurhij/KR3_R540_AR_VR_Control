@@ -92,7 +92,12 @@ class Grab : MonoBehaviour {
 
   // true: moving, false: touching, null: not touched
   void SetColor(bool? moving) {
-    var material = target.GetComponent<Renderer>().material;
+    if (target == null)
+      return;
+    var renderer = target.GetComponent<Renderer>();
+    if (renderer == null)
+      return;
+    var material = renderer.material;
     if (moving == null) {
       material.DisableKeyword("_EMISSION");
       return;

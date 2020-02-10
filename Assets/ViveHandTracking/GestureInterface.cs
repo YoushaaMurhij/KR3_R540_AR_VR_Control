@@ -15,9 +15,9 @@ public enum GestureBackend {
 // Enum for detection mode. Larger mode return more info, but runs more slowly. If a mode is not
 // supported on a device, will fallback to previous supported mode.
 public enum GestureMode {
-  Point2D = 0,   // Fastest mode, return one 2d point for hand
-  Point3D = 1,   // Return one 3d point for hand, supported on Vive Pro and Focus
-  Skeleton = 2,  // Return skeleton (21 points) for hand, supported on Vive and Vive Pro
+  Point2D = 0,   // Fastest mode, return one 2d point for hand, supported on all devices
+  Point3D = 1,   // Return one 3d point for hand, supported on dual camera devices
+  Skeleton = 2,  // Return skeleton (21 points) for hand, supported on PC and WaveVR
 }
 
 [Serializable]
@@ -35,6 +35,7 @@ public enum GestureType {
   OK = 3,
   Like = 4,
   Five = 5,
+  Victory = 6,
 }
 
 // Class containing detection result for one hand

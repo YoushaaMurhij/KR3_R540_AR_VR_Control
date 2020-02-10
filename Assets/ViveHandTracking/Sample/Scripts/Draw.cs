@@ -62,12 +62,12 @@ class Draw : MonoBehaviour {
 
   void AddPoint(int index) {
     const float size = 0.075f;
-    float x = index < 2 ? -size : size;
+    float x = (index < 2 ? -size : size) + 0.1f;
     float y = index % 3 == 0 ? size : -size;
 
     var go = GameObject.Instantiate(PointPrefab, transform, false);
     go.name = "Point " + index;
-    go.transform.localPosition = new Vector3(x, y, 0.35f);
+    go.transform.localPosition = new Vector3(x, y, 0.5f);
     go.transform.localRotation = Quaternion.identity;
     go.layer = gameObject.layer;
 
