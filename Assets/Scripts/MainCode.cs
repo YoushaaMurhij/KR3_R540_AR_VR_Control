@@ -48,7 +48,6 @@ public class MainCode : MonoBehaviour
         Variables.ROBOT.setSpeed(500);        // Set Speed to 100 mm/s
         Variables.ROBOT.setZoneData(5);       // set the rounding instruction 
         //Variables.ROBOT.MoveL(pose_ref);
-        Hand hand;
     }
     void Update()
     {
@@ -57,7 +56,7 @@ public class MainCode : MonoBehaviour
         Frame frame = provider.CurrentFrame;
         if (frame != null)
         {
-            hand = frame.Hands[0];
+            Hand hand = frame.Hands[0];
             X = hand.PalmPosition.z;
             Y = hand.PalmPosition.x;
             Z = hand.PalmPosition.y;
