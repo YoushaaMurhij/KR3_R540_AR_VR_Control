@@ -52,22 +52,19 @@ public class MainCode : MonoBehaviour
     void Update()
     {
         double Factor_VR = 30;
-        //int Factor_LM = 400; //400
-        //Frame frame = provider.CurrentFrame;
-        //if (frame != null)
-        //{
-        //    if (frame.Hands.Count > 0)
-        //    //foreach (Hand hand in frame.Hands)
-        //    {
-        //        Hand hand = frame.Hands[0];
-        //        X = hand.PalmPosition.z;
-        //        Y = hand.PalmPosition.x;
-        //        Z = hand.PalmPosition.y;
-        //    }
-        //Vector3 handPosition = hand.PalmPosition.ToVector3();
-        //x = Variables.xyz_ref[0] + X * Factor_LM;
-        //y = Variables.xyz_ref[1] - Y * Factor_LM;
-        //z = Variables.xyz_ref[2] + Z * Factor_LM;
+        int Factor_LM = 400; //400
+        Frame frame = provider.CurrentFrame;
+        if (frame != null)
+        {
+            Hand hand = frame.Hands[0];
+            X = hand.PalmPosition.z;
+            Y = hand.PalmPosition.x;
+            Z = hand.PalmPosition.y;
+        }
+        Vector3 handPosition = hand.PalmPosition.ToVector3();
+        x = Variables.xyz_ref[0] + X * Factor_LM;
+        y = Variables.xyz_ref[1] - Y * Factor_LM;
+        z = Variables.xyz_ref[2] + Z * Factor_LM;
 
         //using (System.IO.StreamWriter file =
         //new System.IO.StreamWriter(@"C:\Users\Youshaa Murhij\Desktop\pos11.txt", true))
@@ -80,9 +77,9 @@ public class MainCode : MonoBehaviour
         //    file.WriteLine((Variables.xyz_ref[0] + X * 65) + " " + (Variables.xyz_ref[1] - Y * 65) + " " + (Variables.xyz_ref[2] + Z * 65));
         //}
         //}
-        x = Variables.xyz_ref[0] + HandPos.v.z * Factor_VR;
-        y = Variables.xyz_ref[1] - HandPos.v.x * Factor_VR;
-        z = Variables.xyz_ref[2] + HandPos.v.y * Factor_VR;
+        // x = Variables.xyz_ref[0] + HandPos.v.z * Factor_VR;
+        // y = Variables.xyz_ref[1] - HandPos.v.x * Factor_VR;
+        // z = Variables.xyz_ref[2] + HandPos.v.y * Factor_VR;
         Variables.target_pose.setPos(x, y, z);
         Variables.ROBOT.MoveL(Variables.target_pose);
         joints = Variables.ROBOT.Joints();
