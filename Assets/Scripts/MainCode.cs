@@ -5,9 +5,9 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Threading;
-//using Leap;
-//using Leap.Unity;
-//using Leap.Unity.Attributes;
+using Leap;
+using Leap.Unity;
+using Leap.Unity.Attributes;
 public class Variables
 {
     public static double[] xyz_ref;
@@ -16,7 +16,7 @@ public class Variables
 }
 public class MainCode : MonoBehaviour
 {
-    //public LeapServiceProvider provider;
+    public LeapServiceProvider provider;
     double x, y, z, X = 0, Y = 0, Z = 0;
     double[] joints;
     double[] home_joints = { 0, -45, 45, 1, 45, 5 }; // home joints, in deg
@@ -48,20 +48,21 @@ public class MainCode : MonoBehaviour
         Variables.ROBOT.setSpeed(500);        // Set Speed to 100 mm/s
         Variables.ROBOT.setZoneData(5);       // set the rounding instruction 
         //Variables.ROBOT.MoveL(pose_ref);
+        Hand hand;
     }
     void Update()
     {
         double Factor_VR = 30;
-        int Factor_LM = 400; //400
+        double Factor_LM = 400; //400
         Frame frame = provider.CurrentFrame;
         if (frame != null)
         {
-            Hand hand = frame.Hands[0];
+            hand = frame.Hands[0];
             X = hand.PalmPosition.z;
             Y = hand.PalmPosition.x;
             Z = hand.PalmPosition.y;
         }
-        Vector3 handPosition = hand.PalmPosition.ToVector3();
+        //Vector3 handPosition = hand.PalmPosition.ToVector3();
         x = Variables.xyz_ref[0] + X * Factor_LM;
         y = Variables.xyz_ref[1] - Y * Factor_LM;
         z = Variables.xyz_ref[2] + Z * Factor_LM;
