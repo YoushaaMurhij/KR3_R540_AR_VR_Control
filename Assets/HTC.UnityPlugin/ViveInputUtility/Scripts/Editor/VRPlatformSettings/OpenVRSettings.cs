@@ -256,7 +256,6 @@ namespace HTC.UnityPlugin.Vive
                 recommendedValue = true,
             });
 
-#if !UNITY_2019_2_OR_NEWER
             Add(new VIUVersionCheck.RecommendedSetting<ResolutionDialogSetting>()
             {
                 settingTitle = "Display Resolution Dialog",
@@ -265,7 +264,6 @@ namespace HTC.UnityPlugin.Vive
                 setValueFunc = v => PlayerSettings.displayResolutionDialog = v,
                 recommendedValue = ResolutionDialogSetting.HiddenByDefault,
             });
-#endif
 
             Add(new VIUVersionCheck.RecommendedSetting<bool>()
             {

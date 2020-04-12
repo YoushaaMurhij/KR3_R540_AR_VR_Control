@@ -642,9 +642,7 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled:
-    Collab: 0
-    UNet: 1
+  cloudServicesEnabled: {}
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -664,10 +662,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 4acf32fd-d3c7-482f-9df3-4e6d637e999a
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: KR3 R540 Project
-  organizationId: unity_zicjc7qsp4u5pg
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

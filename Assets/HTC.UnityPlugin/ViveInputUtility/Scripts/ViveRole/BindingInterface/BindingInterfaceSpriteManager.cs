@@ -1,6 +1,5 @@
 ﻿//========= Copyright 2016-2019, HTC Corporation. All rights reserved. ===========
 
-#pragma warning disable 0649
 using HTC.UnityPlugin.VRModuleManagement;
 using System.Collections.Generic;
 using UnityEngine;
