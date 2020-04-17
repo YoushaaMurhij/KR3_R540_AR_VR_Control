@@ -91,6 +91,26 @@ public class MainScript : MonoBehaviour {
             currentRotation.z = (float)jointValues[i];
             jointList[i].transform.localEulerAngles = currentRotation;
         }
+        if (extendedFingers <= 1)
+        {
+            Gripper_On = true; 
+            for ( int i = 0; i < 3; i ++) {
+                Vector3 currentRotation_gripper = gripperList[i].transform.localEulerAngles;
+                //Debug.Log();
+                currentRotation_gripper.x = (float)gripperValues[i];
+                gripperList[i].transform.localEulerAngles = currentRotation_gripper;
+            }
+        }
+        else if (extendedFingers >= 3)
+        {
+            Gripper_On = false; 
+            for ( int i = 0; i < 3; i ++) {
+                Vector3 currentRotation_gripper = gripperList[i].transform.localEulerAngles;
+                //Debug.Log(Pitch);
+                currentRotation_gripper.x = 0.0f;
+                gripperList[i].transform.localEulerAngles = currentRotation_gripper;
+            }
+        }
 	}
 
 
@@ -132,7 +152,22 @@ public class MainScript : MonoBehaviour {
             }
             else if (RobotChildren[i].name == "axis6") {
                 jointList[5] = RobotChildren[i].gameObject;
-            }           
+            }
+            //================Gripper==================
+            else if (RobotChildren[i].name == "victor_right_gripper_fingerA_base") {
+                gripperList[0] = RobotChildren[i].gameObject;
+            }
+            else if (RobotChildren[i].name == "victor_right_gripper_fingerB_base") {
+                gripperList[1] = RobotChildren[i].gameObject;
+            }
+            else if (RobotChildren[i].name == "victor_right_gripper_fingerC_base") {
+                gripperList[2] = RobotChildren[i].gameObject;
+            }
         }
     }
+
+ 
+
+
+
 }
