@@ -22,7 +22,7 @@ public class MainScript : MonoBehaviour {
     public LeapServiceProvider provider;
     double x, y, z, X = 0, Y = 0, Z = 0 , Yaw =0, Pitch= 0, Roll = 0;
     double[] home_joints = {0.0f , -90.0f, 90.0f, 0.0f , 0.0f, 0.0f};
-    double Factor_LM = 30; //400
+    double Factor_LM = 5; //400
     bool Gripper_On = false;
     int extendedFingers = 0;
     
@@ -32,7 +32,7 @@ public class MainScript : MonoBehaviour {
         RoboDK RDK = new RoboDK();
         ROBOT = RDK.ItemUserPick("Select a robot", RoboDK.ITEM_TYPE_ROBOT);
         RDK.setRunMode(RoboDK.RUNMODE_SIMULATE);
-        ROBOT.MoveJ(home_joints);
+        //ROBOT.MoveJ(home_joints);
         Mat frame = ROBOT.PoseFrame();
         //Mat tool = Variables.ROBOT.PoseTool();
         Mat pose_ref = ROBOT.Pose();
@@ -74,11 +74,11 @@ public class MainScript : MonoBehaviour {
         //Debug.Log(Yaw);
         }
         target_pose.setPos(x, y, z);
-        ROBOT.MoveL(target_pose);
+        //ROBOT.MoveL(target_pose);
         jointValues = ROBOT.Joints();
         // Mapping between system coordinates in unity and Leapmotion
         //jointValues[0]*= -1;
-        //jointValues[1]+= 90;
+        jointValues[1]+= 180;
         //jointValues[3]+= 90;
         //jointValues[3]-= Roll; 
         //jointValues[4]*= -1;
@@ -88,7 +88,18 @@ public class MainScript : MonoBehaviour {
         for ( int i = 0; i < 6; i ++) {
             Vector3 currentRotation = jointList[i].transform.localEulerAngles;
             //Debug.Log(currentRotation);
-            currentRotation.z = (float)jointValues[i];
+            if (i == 0)
+            {
+                currentRotation.y = (float)jointValues[i];
+            }
+            else if (i == 3 || i == 5)
+            {
+                currentRotation.z = (float)jointValues[i];
+            }
+            else
+            {
+                currentRotation.x = (float)jointValues[i];
+            }
             jointList[i].transform.localEulerAngles = currentRotation;
         }
         if (extendedFingers <= 1)

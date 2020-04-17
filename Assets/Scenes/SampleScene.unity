@@ -262,7 +262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &34901283
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1001 &54069724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -408,7 +406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!4 &61384349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4728132484177242, guid: b80b69066eb5c5c4a829011c61105325,
@@ -534,7 +531,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &124895264
 GameObject:
   m_ObjectHideFlags: 8
@@ -994,9 +990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37dc21ac85e2b4ca12e377369baae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LargeAngleLimitMin: 0
-  LargeAngleLimitMax: 70
-  Tolerance: 5
 --- !u!59 &283192795
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1008,7 +1001,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000053622523, y: 0.021515597, z: 0.022249177}
+  m_ConnectedAnchor: {x: 0.0000005827913, y: 0.021515887, z: 0.022249386}
   m_UseSpring: 0
   m_Spring:
     spring: NaN
@@ -1044,9 +1037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3682572d5f211434abbaf5c4f3aeb963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerA_joint_2
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &283192797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1059,11 +1049,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!114 &283192798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,7 +1061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &283192799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,7 +1412,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371263017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4177028a4197992409b0fa80c368a9ed, type: 3}
   m_Name: 
@@ -1436,6 +1420,31 @@ MonoBehaviour:
   provider: {fileID: 387699128}
   LeapBOOL: 1
   BO2: 1
+--- !u!114 &371263020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371263017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125217359f59fff48acccf70f8acca81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RobotBase: {fileID: 694158616}
+  jointValues:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  gripperValues:
+  - -35
+  - -35
+  - -35
+  provider: {fileID: 387699128}
 --- !u!1 &377753173
 GameObject:
   m_ObjectHideFlags: 8
@@ -1663,9 +1672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37dc21ac85e2b4ca12e377369baae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LargeAngleLimitMin: -16
-  LargeAngleLimitMax: 10
-  Tolerance: 5
 --- !u!59 &426841363
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1677,7 +1683,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.036512997, y: 0.061120205, z: -0.022301817}
+  m_ConnectedAnchor: {x: 0.03651314, y: 0.061120503, z: -0.022301752}
   m_UseSpring: 0
   m_Spring:
     spring: NaN
@@ -1713,9 +1719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3682572d5f211434abbaf5c4f3aeb963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerC_knuckle
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &426841365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1728,11 +1731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!114 &426841366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,7 +1743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &426841367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2033,7 +2030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!1 &484616069
 GameObject:
   m_ObjectHideFlags: 8
@@ -2142,7 +2138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &548795135
 GameObject:
   m_ObjectHideFlags: 8
@@ -2252,9 +2247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37dc21ac85e2b4ca12e377369baae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LargeAngleLimitMin: -57.29578
-  LargeAngleLimitMax: 57.29578
-  Tolerance: 5
 --- !u!59 &550556638
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -2266,7 +2258,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000004944972, y: 0.038102187, z: -0.000000044703388}
+  m_ConnectedAnchor: {x: -0.00000065095924, y: 0.03810235, z: -0.00000018626437}
   m_UseSpring: 0
   m_Spring:
     spring: NaN
@@ -2302,9 +2294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3682572d5f211434abbaf5c4f3aeb963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerC_joint_4
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &550556640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,11 +2306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!54 &550556641
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2350,7 +2334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &550556643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2465,9 +2448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37dc21ac85e2b4ca12e377369baae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LargeAngleLimitMin: -57.29578
-  LargeAngleLimitMax: 57.29578
-  Tolerance: 5
 --- !u!59 &592332084
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -2479,7 +2459,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000005877182, y: 0.057151183, z: -0.0000016763802}
+  m_ConnectedAnchor: {x: 0.0000007069274, y: 0.05715135, z: -0.0000016689296}
   m_UseSpring: 0
   m_Spring:
     spring: NaN
@@ -2515,9 +2495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3682572d5f211434abbaf5c4f3aeb963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerA_joint_3
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &592332086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2530,11 +2507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!114 &592332087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2547,7 +2519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &592332088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3528,7 +3499,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
+--- !u!1 &694158616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -9138384822779237652, guid: f5e3b40f0ab469649965b1ba662a2636,
+    type: 3}
+  m_PrefabInstance: {fileID: 471670238}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &697683461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3575,7 +3551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!1001 &704107319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3675,7 +3650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &709426003
 GameObject:
   m_ObjectHideFlags: 8
@@ -3778,7 +3752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &728443964 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1796784778046886, guid: b80b69066eb5c5c4a829011c61105325,
@@ -3931,7 +3904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &802190793
 GameObject:
   m_ObjectHideFlags: 0
@@ -4013,9 +3985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37dc21ac85e2b4ca12e377369baae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LargeAngleLimitMin: 0
-  LargeAngleLimitMax: 70
-  Tolerance: 5
 --- !u!59 &802190798
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -4027,7 +3996,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000037968056, y: 0.021515373, z: 0.022250902}
+  m_ConnectedAnchor: {x: -0.0000004988898, y: 0.021515418, z: 0.022250835}
   m_UseSpring: 0
   m_Spring:
     spring: NaN
@@ -4063,9 +4032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3682572d5f211434abbaf5c4f3aeb963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerB_joint_2
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &802190800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4078,11 +4044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!114 &802190801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4095,7 +4056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &802190802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4291,11 +4251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!114 &880226268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4308,7 +4263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!1 &896273022
 GameObject:
   m_ObjectHideFlags: 0
@@ -4353,7 +4307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &907073319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1796784778046886, guid: b80b69066eb5c5c4a829011c61105325,
@@ -4477,7 +4430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &947716484
 GameObject:
   m_ObjectHideFlags: 8
@@ -4623,7 +4575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!4 &976277193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4901795404207602, guid: 9fd758f55549ed545ae40228a2eaa38c,
@@ -4675,7 +4626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1001 &984690769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4827,7 +4777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1020396127
 GameObject:
   m_ObjectHideFlags: 8
@@ -4942,7 +4891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!1001 &1106901186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5082,9 +5030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37dc21ac85e2b4ca12e377369baae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LargeAngleLimitMin: -57.29578
-  LargeAngleLimitMax: 57.29578
-  Tolerance: 5
 --- !u!59 &1126374026
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -5096,7 +5041,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000044393005, y: 0.057152253, z: -0.00000026822084}
+  m_ConnectedAnchor: {x: -0.00000044765534, y: 0.057152282, z: -0.00000043213356}
   m_UseSpring: 0
   m_Spring:
     spring: NaN
@@ -5132,9 +5077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3682572d5f211434abbaf5c4f3aeb963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerB_joint_3
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &1126374028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5147,11 +5089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!114 &1126374029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5164,7 +5101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &1126374030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5234,19 +5170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae64e8d822c8e344bec4e3fc71a5748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionSet:
-    actionSetPath: /actions/default
-  a_grip:
-    actionPath: /actions/default/in/Squeeze
-    needsReinit: 0
-  hand_real: {fileID: 0}
-  validIkMaterial: {fileID: 2100000, guid: 62900d2e34ba5a14f9d010198dd51343, type: 2}
-  invalidIkMaterial: {fileID: 2100000, guid: edbfa62ba6bebc84a8cb7cb8044a4d7f, type: 2}
-  validIkListener: {fileID: 1170082581}
-  wrenchStampedListener: {fileID: 1170082582}
-  forceThreshold: 6
-  forceMax: 20
-  arm: {fileID: 0}
 --- !u!114 &1170082573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5342,7 +5265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &1170082577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5415,9 +5337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2fee03764ca3140b9691028b0921f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /unity_teleop/right_gripper/target
-  FrameId: Unity
-  maxUpdateIntervalSec: 0.1
 --- !u!114 &1170082579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5430,8 +5349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff98778ae051cfd40a6e4effdf851ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeout: 10
-  Protocol: 0
 --- !u!114 &1170082580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5444,8 +5361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4297c3622ac96934990f426aa1978205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /unity_teleop/target_pose/right_flange
-  FrameId: victor_root
 --- !u!114 &1170082581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5458,8 +5373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3ec9d49fab80d44aa5755da74c930a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /unity_teleop/right_arm/is_ik_valid
-  TimeStep: 0
 --- !u!114 &1170082582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5472,8 +5385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5558023551d6350448ffe191ff9d26cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /right_gripper/wrench
-  TimeStep: 0
 --- !u!1 &1173947381
 GameObject:
   m_ObjectHideFlags: 0
@@ -5555,9 +5466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37dc21ac85e2b4ca12e377369baae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LargeAngleLimitMin: -57.29578
-  LargeAngleLimitMax: 57.29578
-  Tolerance: 5
 --- !u!59 &1173947386
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -5569,7 +5477,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000056313934, y: 0.05715226, z: -0.00000035762778}
+  m_ConnectedAnchor: {x: -0.0000006152934, y: 0.05715232, z: -0.00000055506814}
   m_UseSpring: 0
   m_Spring:
     spring: NaN
@@ -5605,9 +5513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3682572d5f211434abbaf5c4f3aeb963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerC_joint_3
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &1173947388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5620,11 +5525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!114 &1173947389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5637,7 +5537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &1173947390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5714,9 +5613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37dc21ac85e2b4ca12e377369baae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LargeAngleLimitMin: -57.29578
-  LargeAngleLimitMax: 57.29578
-  Tolerance: 5
 --- !u!59 &1225438567
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -5728,7 +5624,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000006142961, y: 0.038100857, z: -0.0000013777186}
+  m_ConnectedAnchor: {x: 0.0000006813514, y: 0.038101118, z: -0.0000013069382}
   m_UseSpring: 0
   m_Spring:
     spring: NaN
@@ -5764,9 +5660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3682572d5f211434abbaf5c4f3aeb963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerA_joint_4
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &1225438569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5779,11 +5672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!54 &1225438570
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5812,7 +5700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &1225438572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5890,7 +5777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1001 &1270610237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6118,7 +6004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!4 &1324250658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4220221811615826, guid: 94e4ff49ff83eee48b18c2d89c0c3acc,
@@ -6235,7 +6120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1001 &1343876921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6400,9 +6284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37dc21ac85e2b4ca12e377369baae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LargeAngleLimitMin: -57.29578
-  LargeAngleLimitMax: 57.29578
-  Tolerance: 5
 --- !u!59 &1358032136
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -6414,7 +6295,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000043489266, y: 0.038102213, z: -0.000000026076975}
+  m_ConnectedAnchor: {x: -0.00000048332146, y: 0.038102183, z: -0.00000016391265}
   m_UseSpring: 0
   m_Spring:
     spring: NaN
@@ -6450,9 +6331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3682572d5f211434abbaf5c4f3aeb963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerB_joint_4
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &1358032138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6465,11 +6343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!54 &1358032139
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6498,7 +6371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &1358032141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7334,7 +7206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1392255323 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1843312283495534, guid: 07334914a6f8cc8438f0581af73be67c,
@@ -7760,7 +7631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1612316606 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1516301069522306, guid: 95773675f85d11740a92ddc274005dfc,
@@ -8017,7 +7887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!4 &1658251243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4352354286451124, guid: 11531cc70deb9f64aad452485894f2e5,
@@ -8468,7 +8337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1821754038
 GameObject:
   m_ObjectHideFlags: 0
@@ -8514,7 +8382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!4 &1833021605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4220221811615826, guid: 94e4ff49ff83eee48b18c2d89c0c3acc,
@@ -8566,7 +8433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1889292976
 GameObject:
   m_ObjectHideFlags: 8
@@ -8763,9 +8629,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9deecd66817ba49b13bd104dc94552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerA_knuckle
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &1901202189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8778,11 +8641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!114 &1901202190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8795,7 +8653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!1 &1907707646
 GameObject:
   m_ObjectHideFlags: 8
@@ -8929,7 +8786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!4 &1942504559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4028976852356208, guid: 7e852522bf28ba9489248a988e427471,
@@ -9093,7 +8949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1982940758
 GameObject:
   m_ObjectHideFlags: 0
@@ -9139,7 +8994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &2002759678 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1738552134596357766, guid: f5e3b40f0ab469649965b1ba662a2636,
@@ -9317,9 +9171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37dc21ac85e2b4ca12e377369baae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LargeAngleLimitMin: 0
-  LargeAngleLimitMax: 70
-  Tolerance: 5
 --- !u!59 &2045222370
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -9331,7 +9182,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000005733956, y: 0.02151573, z: 0.022250755}
+  m_ConnectedAnchor: {x: -0.0000006628025, y: 0.02151588, z: 0.022250729}
   m_UseSpring: 0
   m_Spring:
     spring: NaN
@@ -9367,9 +9218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3682572d5f211434abbaf5c4f3aeb963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerC_joint_2
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &2045222372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9382,11 +9230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!114 &2045222373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9399,7 +9242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &2045222374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9457,7 +9299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &2046276860
 GameObject:
   m_ObjectHideFlags: 0
@@ -9539,9 +9380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37dc21ac85e2b4ca12e377369baae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LargeAngleLimitMin: -16
-  LargeAngleLimitMax: 10
-  Tolerance: 5
 --- !u!59 &2046276865
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -9553,7 +9391,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.036512066, y: 0.061120063, z: -0.022301879}
+  m_ConnectedAnchor: {x: -0.03651198, y: 0.061120205, z: -0.022301732}
   m_UseSpring: 0
   m_Spring:
     spring: NaN
@@ -9589,9 +9427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3682572d5f211434abbaf5c4f3aeb963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JointName: victor_right_gripper_fingerB_knuckle
-  EffortLimit: Infinity
-  VelocityLimit: Infinity
 --- !u!114 &2046276867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9604,11 +9439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ccdec9755ee047a61d13f0ffb29ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInertiaGizmo: 0
-  UseUrdfData: 1
-  CenterOfMass: {x: -0, y: 0, z: 0}
-  InertiaTensor: {x: 0.01, y: 0.01, z: 0.01}
-  InertiaTensorRotation: {x: -0, y: -0, z: -0, w: 0.99999994}
 --- !u!114 &2046276868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9621,7 +9451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb905a4fd3a609d42badeefe2f25ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseLink: 0
 --- !u!114 &2046276869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9743,7 +9572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb784c3312ba8f4f959fbdb12f80252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &2069497294
 GameObject:
   m_ObjectHideFlags: 8
@@ -10022,7 +9850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c78635e185ce14ba7c9c92ee5f44a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &2138677391
 GameObject:
   m_ObjectHideFlags: 0
