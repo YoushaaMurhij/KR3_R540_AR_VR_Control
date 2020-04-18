@@ -25,7 +25,7 @@ public class MainCode : MonoBehaviour
     public bool LeapBOOL = true;
     public bool BO2 = true;
     int Factor_VR = 0;
-    int Factor_LM = 90; //400
+    int Factor_LM = 120; //400
     public GameObject RobotBase;
     //public double[] jointValues = new double[6];
     public double[] gripperValues = {-35f, -35f, -35f};
@@ -75,7 +75,7 @@ public class MainCode : MonoBehaviour
            }
         x = Variables.xyz_ref[0] + X * Factor_LM;
         y = Variables.xyz_ref[1] - Y * Factor_LM;
-        z = Variables.xyz_ref[2] + Z * Factor_LM;
+        z = Variables.xyz_ref[2] + Z * Factor_LM * 0.4;
         // x = Variables.xyz_ref[0] + CPos.v.z * Factor_VR;
         // y = Variables.xyz_ref[1] - CPos.v.x * Factor_VR;
         // z = Variables.xyz_ref[2] + CPos.v.y * Factor_VR;
