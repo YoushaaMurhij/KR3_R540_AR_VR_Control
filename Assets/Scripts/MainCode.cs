@@ -8,6 +8,7 @@ using System.Threading;
 using Leap;
 using Leap.Unity;
 using Leap.Unity.Attributes;
+
 public class Variables
 {
     public static double[] xyz_ref;
@@ -24,10 +25,19 @@ public class MainCode : MonoBehaviour
     public bool LeapBOOL = true;
     public bool BO2 = true;
     int Factor_VR = 0;
-    int Factor_LM = 80; //400
+    int Factor_LM = 90; //400
+    public GameObject RobotBase;
+    //public double[] jointValues = new double[6];
+    public double[] gripperValues = {-35f, -35f, -35f};
+    //private GameObject[] jointList = new GameObject[6];
+    private GameObject[] gripperList = new GameObject[3];
+    int extendedFingers = 0;
+    bool Gripper_On = false;
+
     void Start()
     {
         //================================RoboDK Code==============================================
+        initializeJoints();
         RoboDK RDK = new RoboDK();
         Variables.ROBOT = RDK.ItemUserPick("Select a robot", RoboDK.ITEM_TYPE_ROBOT);
         RDK.setRunMode(RoboDK.RUNMODE_SIMULATE);
@@ -54,6 +64,14 @@ public class MainCode : MonoBehaviour
                X = hand.PalmPosition.z;
                Y = hand.PalmPosition.x;
                Z = hand.PalmPosition.y;
+               Debug.Log(X + " " + Y + " " + Z);
+               extendedFingers = 0;
+               for (int f = 0; f < hand.Fingers.Count; f++)  
+               {   //Check gripper State:
+                   Finger digit = hand.Fingers [f];
+                   if (digit.IsExtended) 
+                   extendedFingers++;
+               }
            }
         x = Variables.xyz_ref[0] + X * Factor_LM;
         y = Variables.xyz_ref[1] - Y * Factor_LM;
@@ -72,8 +90,47 @@ public class MainCode : MonoBehaviour
         alpha4 = (int)joints[3];
         alpha5 = (int)joints[4];
         alpha6 = (int)joints[5];
+
+        if (extendedFingers <= 1)
+        {
+            Gripper_On = true; 
+            for ( int i = 0; i < 3; i ++) {
+                Vector3 currentRotation_gripper = gripperList[i].transform.localEulerAngles;
+                //Debug.Log();
+                currentRotation_gripper.x = (float)gripperValues[i];
+                gripperList[i].transform.localEulerAngles = currentRotation_gripper;
+            }
+        }
+        else if (extendedFingers >= 3)
+        {
+            Gripper_On = false; 
+            for ( int i = 0; i < 3; i ++) {
+                Vector3 currentRotation_gripper = gripperList[i].transform.localEulerAngles;
+                //Debug.Log(Pitch);
+                currentRotation_gripper.x = 0.0f;
+                gripperList[i].transform.localEulerAngles = currentRotation_gripper;
+            }
+        }
         
     }
+
+
+
+        void initializeJoints() {
+        var RobotChildren = RobotBase.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < RobotChildren.Length; i++) {
+            if (RobotChildren[i].name == "victor_right_gripper_fingerA_base") {
+                gripperList[0] = RobotChildren[i].gameObject;
+            }
+            else if (RobotChildren[i].name == "victor_right_gripper_fingerB_base") {
+                gripperList[1] = RobotChildren[i].gameObject;
+            }
+            else if (RobotChildren[i].name == "victor_right_gripper_fingerC_base") {
+                gripperList[2] = RobotChildren[i].gameObject;
+            }
+        }
+    }
+
 
     //void OnGUI()
     //{
