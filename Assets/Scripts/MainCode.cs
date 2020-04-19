@@ -21,6 +21,8 @@ public class MainCode : MonoBehaviour
     double x, y, z, X = 0, Y = 0, Z = 0;
     double[] joints;
     double[] home_joints = { 0, -45, 45, 1, 45, 5 }; // home joints, in deg
+    private double[] upperLimit = { 170f, 50f, 155f, 175f, 120f, 350f};
+    private double[] lowerLimit = { -170f, -170f, -110f, -175f, -120f, -350f };
     public static int alpha1 = 0, alpha2 = -90, alpha3 = 90, alpha4 = 0, alpha5 = 0, alpha6 = 0;
     public bool LeapBOOL = true;
     public bool BO2 = true;
@@ -114,9 +116,24 @@ public class MainCode : MonoBehaviour
         
     }
 
+    void OnGUI() {
+        int boundary = 20;
+        #if UNITY_EDITOR
+                int labelHeight = 20;
+                GUI.skin.label.fontSize = GUI.skin.box.fontSize = GUI.skin.button.fontSize = 20;
+        #else
+                int labelHeight = 40;
+                GUI.skin.label.fontSize = GUI.skin.box.fontSize = GUI.skin.button.fontSize = 40;
+        #endif
+        GUI.skin.label.alignment = TextAnchor.MiddleLeft;
+        for (int i = 0; i < 6; i++) {
+            GUI.Label(new Rect(boundary + 400, boundary + ( i * 2 + 1 ) * labelHeight, labelHeight * 4 + 60, labelHeight), "Joint " + (i+1) + ": " + (int)joints[i] );
+            joints[i] = GUI.HorizontalSlider(new Rect(boundary+ 400 + labelHeight * 4 + 60, boundary + (i * 2 + 1) * labelHeight + labelHeight / 4, labelHeight * 5, labelHeight), (float)joints[i], (float)lowerLimit[i], (float)upperLimit[i]);
+        }
+    }
 
 
-        void initializeJoints() {
+    void initializeJoints() {
         var RobotChildren = RobotBase.GetComponentsInChildren<Transform>();
         for (int i = 0; i < RobotChildren.Length; i++) {
             if (RobotChildren[i].name == "victor_right_gripper_fingerA_base") {
