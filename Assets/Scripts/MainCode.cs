@@ -28,11 +28,12 @@ public class MainCode : MonoBehaviour
     public bool BO2 = true;
     int Factor_VR = 0;
     int Factor_LM = 120; //400
-    public GameObject RobotBase;
+    public GameObject RobotBase, Camera_frame;
     //public double[] jointValues = new double[6];
     public double[] gripperValues = {-35f, -35f, -35f};
     //private GameObject[] jointList = new GameObject[6];
     private GameObject[] gripperList = new GameObject[3];
+    private GameObject Camera_obj;
     int extendedFingers = 0;
     bool Gripper_On = false;
 
@@ -63,10 +64,12 @@ public class MainCode : MonoBehaviour
            if (frame.Hands.Count > 0)
            {
                Hand hand = frame.Hands[0];
-               X = hand.PalmPosition.z;
-               Y = hand.PalmPosition.x;
-               Z = hand.PalmPosition.y;
-               Debug.Log(X + " " + Y + " " + Z);
+               X = hand.PalmPosition.z - Camera_obj.transform.position.x;
+               Y = hand.PalmPosition.x - Camera_obj.transform.position.y;
+               Z = hand.PalmPosition.y - Camera_obj.transform.position.z;
+               Debug.Log(hand.PalmPosition.z + "      " + hand.PalmPosition.x + "     " + hand.PalmPosition.y);
+               Debug.Log(Camera_obj.transform.position);
+
                extendedFingers = 0;
                for (int f = 0; f < hand.Fingers.Count; f++)  
                {   //Check gripper State:
@@ -144,6 +147,13 @@ public class MainCode : MonoBehaviour
             }
             else if (RobotChildren[i].name == "victor_right_gripper_fingerC_base") {
                 gripperList[2] = RobotChildren[i].gameObject;
+            }
+        }
+        var Camera_child = Camera_frame.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < Camera_child.Length; i++) {
+            if (Camera_child[i].name == "MainCamera") {
+                Camera_obj = Camera_child[i].gameObject;
+                break;
             }
         }
     }

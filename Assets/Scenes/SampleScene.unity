@@ -1427,6 +1427,7 @@ MonoBehaviour:
   LeapBOOL: 1
   BO2: 1
   RobotBase: {fileID: 470847656}
+  Camera_frame: {fileID: 2143204538}
   gripperValues:
   - -35
   - -35
@@ -10403,6 +10404,12 @@ PrefabInstance:
     - {fileID: 23865096993657776, guid: b80b69066eb5c5c4a829011c61105325, type: 3}
     - {fileID: 33272297326875074, guid: b80b69066eb5c5c4a829011c61105325, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b80b69066eb5c5c4a829011c61105325, type: 3}
+--- !u!1 &2143204538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 193950, guid: 8075b10b3fa5b5b45bc02a03074b8b95,
+    type: 3}
+  m_PrefabInstance: {fileID: 1630376076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2143873360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4728132484177242, guid: b80b69066eb5c5c4a829011c61105325,
