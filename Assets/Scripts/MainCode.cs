@@ -18,7 +18,7 @@ public class Variables
 public class MainCode : MonoBehaviour
 {
     public LeapServiceProvider provider;
-    double x, y, z, X = 0, Y = 0, Z = 0;
+    double x, y, z, X = 0, Y = 0, Z = 0, Yaw =0, Pitch= 0, Roll = 0;
     double[] joints;
     double[] home_joints = { 0, -45, 80, 1, 45, 5 }; // home joints, in deg
     private double[] upperLimit = { 170f, 50f, 155f, 175f, 120f, 350f};
@@ -66,6 +66,9 @@ public class MainCode : MonoBehaviour
                X = hand.PalmPosition.z;
                Y = hand.PalmPosition.x;
                Z = hand.PalmPosition.y * 0.3;
+               Roll = hand.Rotation.x * 180 * 7 / 22;
+               Pitch = hand.Rotation.y * 180 * 7 / 22;
+               Yaw = hand.Rotation.z * 180 * 7 / 22; 
                Debug.Log(hand.PalmPosition.z + "      " + hand.PalmPosition.x + "     " + hand.PalmPosition.y * 0.3);
                extendedFingers = 0;
                for (int f = 0; f < hand.Fingers.Count; f++)  
@@ -91,7 +94,7 @@ public class MainCode : MonoBehaviour
         alpha3 = (int)joints[2];
         alpha4 = (int)joints[3];
         alpha5 = (int)joints[4];
-        alpha6 = (int)joints[5];
+        alpha6 = (int)joints[5] + (int)Pitch;
 
         if (extendedFingers <= 1)
         {
