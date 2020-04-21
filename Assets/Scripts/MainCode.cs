@@ -27,7 +27,7 @@ public class MainCode : MonoBehaviour
     public bool LeapBOOL = true;
     public bool BO2 = true;
     int Factor_VR = 0;
-    int Factor_LM = 135; //400
+    int Factor_LM = 220; //400
     public GameObject RobotBase;
     //public double[] jointValues = new double[6];
     public double[] gripperValues = {-35f, -35f, -35f};
@@ -63,9 +63,9 @@ public class MainCode : MonoBehaviour
            if (frame.Hands.Count > 0)
            {
                Hand hand = frame.Hands[0];
-               X = hand.PalmPosition.z;
+               X = hand.PalmPosition.z * 0.6;
                Y = hand.PalmPosition.x;
-               Z = hand.PalmPosition.y * 0.3;
+               Z = hand.PalmPosition.y;
                Roll = hand.Rotation.x * 180 * 7 / 22;
                Pitch = hand.Rotation.y * 180 * 7 / 22;
                Yaw = hand.Rotation.z * 180 * 7 / 22; 
