@@ -26,15 +26,20 @@ public class MainCode : MonoBehaviour
     public static int alpha1 = 0, alpha2 = -90, alpha3 = 90, alpha4 = 0, alpha5 = 0, alpha6 = 0;
     public bool LeapBOOL = true;
     public bool BO2 = true;
-    int Factor_VR = 0;
+    int Factor_VR = 50;
     int Factor_LM = 220; //400
-    public GameObject RobotBase;
+    public GameObject RobotBase , Camera_Rig;
+    private GameObject Right_Controller;
+
     //public double[] jointValues = new double[6];
     public double[] gripperValues = {-35f, -35f, -35f};
     //private GameObject[] jointList = new GameObject[6];
     private GameObject[] gripperList = new GameObject[3];
     int extendedFingers = 0;
     bool Gripper_On = false;
+    bool Leap_On = false;
+    bool VR_controllers_On = true;
+    double[] VR_Init_Pos = {0.0f, 0.0f, 0.0f};
 
     void Start()
     {
@@ -53,37 +58,54 @@ public class MainCode : MonoBehaviour
         Variables.ROBOT.setPoseFrame(frame);  // set the reference frame
         //Variables.ROBOT.setPoseTool(tool);    // set the tool frame: important for Online Programming
         Variables.ROBOT.setSpeed(500);        // Set Speed to 100 mm/s
-        Variables.ROBOT.setZoneData(5);       // set the rounding instruction 
+        Variables.ROBOT.setZoneData(5);       // set the rounding instruction
+        VR_Init_Pos[0] = Right_Controller.transform.position.z;
+        VR_Init_Pos[1] = Right_Controller.transform.position.x;
+        VR_Init_Pos[2] = Right_Controller.transform.position.y;  
     }
     void Update()
     {
-        Frame frame = provider.CurrentFrame;
-        if (frame != null)
+        if(Leap_On)
         {
-           if (frame.Hands.Count > 0)
-           {
-               Hand hand = frame.Hands[0];
-               X = hand.PalmPosition.z * 0.6;
-               Y = hand.PalmPosition.x;
-               Z = hand.PalmPosition.y;
-               Roll = hand.Rotation.x * 180 * 7 / 22;
-               Pitch = hand.Rotation.y * 180 * 7 / 22;
-               Yaw = hand.Rotation.z * 180 * 7 / 22; 
-               Debug.Log(hand.PalmPosition.z + "      " + hand.PalmPosition.x + "     " + hand.PalmPosition.y * 0.3);
-               extendedFingers = 0;
-               for (int f = 0; f < hand.Fingers.Count; f++)  
-               {   //Check gripper State:
-                   Finger digit = hand.Fingers [f];
-                   if (digit.IsExtended) 
-                   extendedFingers++;
-               }
-           }
-        x = Variables.xyz_ref[0] + X * Factor_LM;
-        y = Variables.xyz_ref[1] - Y * Factor_LM;
-        z = Variables.xyz_ref[2] + Z * Factor_LM;
-        // x = Variables.xyz_ref[0] + CPos.v.z * Factor_VR;
-        // y = Variables.xyz_ref[1] - CPos.v.x * Factor_VR;
-        // z = Variables.xyz_ref[2] + CPos.v.y * Factor_VR;
+            Frame frame = provider.CurrentFrame;
+            if (frame != null)
+            {
+                if (frame.Hands.Count > 0)
+                {
+                    Hand hand = frame.Hands[0];
+                    X = hand.PalmPosition.z * 0.6;
+                    Y = hand.PalmPosition.x;
+                    Z = hand.PalmPosition.y;
+                    Roll = hand.Rotation.x * 180 * 7 / 22;
+                    Pitch = hand.Rotation.y * 180 * 7 / 22;
+                    Yaw = hand.Rotation.z * 180 * 7 / 22; 
+                    Debug.Log(hand.PalmPosition.z + "      " + hand.PalmPosition.x + "     " + hand.PalmPosition.y * 0.3);
+                    extendedFingers = 0;
+                    for (int f = 0; f < hand.Fingers.Count; f++)  
+                    {   //Check gripper State:
+                        Finger digit = hand.Fingers [f];
+                        if (digit.IsExtended) 
+                        extendedFingers++;
+                    }
+                }
+            
+            }
+            x = Variables.xyz_ref[0] + X * Factor_LM;
+            y = Variables.xyz_ref[1] - Y * Factor_LM;
+            z = Variables.xyz_ref[2] + Z * Factor_LM;
+        }
+        else if (VR_controllers_On)
+        {
+            X = Right_Controller.transform.position.z - VR_Init_Pos[0];
+            Y = Right_Controller.transform.position.x - VR_Init_Pos[1];
+            Z = Right_Controller.transform.position.y - VR_Init_Pos[2];
+            Roll  = Right_Controller.transform.rotation.x * 180 * 7 / 22;
+            Pitch = Right_Controller.transform.rotation.y * 180 * 7 / 22;
+            Yaw   = Right_Controller.transform.rotation.z * 180 * 7 / 22;
+            x = Variables.xyz_ref[0] + X * Factor_VR;
+            y = Variables.xyz_ref[1] - Y * Factor_VR;
+            z = Variables.xyz_ref[2] + Z * Factor_VR;
+
         }
         Variables.target_pose.setPos(x, y, z);
         Variables.ROBOT.MoveL(Variables.target_pose);
@@ -101,7 +123,6 @@ public class MainCode : MonoBehaviour
             Gripper_On = true; 
             for ( int i = 0; i < 3; i ++) {
                 Vector3 currentRotation_gripper = gripperList[i].transform.localEulerAngles;
-                //Debug.Log();
                 currentRotation_gripper.x = (float)gripperValues[i];
                 gripperList[i].transform.localEulerAngles = currentRotation_gripper;
             }
@@ -147,6 +168,13 @@ public class MainCode : MonoBehaviour
             }
             else if (RobotChildren[i].name == "victor_right_gripper_fingerC_base") {
                 gripperList[2] = RobotChildren[i].gameObject;
+            }
+        }
+        var Controller_Obj = Camera_Rig.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < Controller_Obj.Length; i++) {
+            if (Controller_Obj[i].name == "RightHand") {
+                Right_Controller = Controller_Obj[i].gameObject;
+                break;
             }
         }
     }
