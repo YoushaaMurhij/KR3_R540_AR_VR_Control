@@ -13,7 +13,9 @@ Keywords: Virtual Reality; Robot; KUKA; Unity3D; HTC VIVE, Leapmotion.
 <p align="center">
   <img height="300" src="/kr3.gif"> </img>
 </p>
+
 ### Citation
+
 If you find our work useful in your research, please consider citing:
 
         @article{MURHIJ2019203,
