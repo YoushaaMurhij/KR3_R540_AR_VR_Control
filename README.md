@@ -1,7 +1,9 @@
 # KR3_R540_AR_VR_Control
 
 This package is based on HTC VIVE Pro instruments to simulate and control  KR3_R540 robot from Unity Environment. 
-                                            ![GitHub KUKA KR3](/1.png)
+<p align="center">
+  <img width="460" height="300" src="/1.png"> </img>
+</p>
 
 # Introduction
 This work is based on my TECIS 2019 paper "An application to simulate and control industrial robot in virtual reality environment integrated with IR stereo camera sensor". 
